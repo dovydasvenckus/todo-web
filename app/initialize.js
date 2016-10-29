@@ -1,15 +1,6 @@
-document.addEventListener('DOMContentLoaded', function() {
-  var Todos = require('models/todos');
-  var todos = new Todos().fetch({
-    success: function(todoList){
-       todoList.each(function(todo) {
-         $('#table-body').append(
-           '<tr>' +
-             '<td>' + todo.get('id') + '</td>' +
-             '<td>' + todo.get('title') + '</td>' +
-             '<td>' + todo.get('done') + '</td>' +
-           '</tr>'
-         );
-       })
-   }});
+document.addEventListener('DOMContentLoaded', function () {
+    var TodoListView = require('views/todo/list');
+    var TodosModel = require('collections/todos');
+    new TodoListView({model: new TodosModel()})
+
 });

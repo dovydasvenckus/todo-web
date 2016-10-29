@@ -13,7 +13,8 @@ module.exports = {
     npm: {
         globals: {
             $: 'jquery',
-            Backbone: 'backbone'
+            Backbone: 'backbone',
+            _: 'underscore'
         }
     }
 }

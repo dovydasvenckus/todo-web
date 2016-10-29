@@ -1,6 +1,5 @@
-var Todo = require('models/todo')
 module.exports = Backbone.Collection.extend({
-    model: Todo,
+    model: require('models/todo'),
     url: '/api/todo?done=false',
     parse: function(response) {
         return response;
