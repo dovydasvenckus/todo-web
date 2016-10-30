@@ -8,6 +8,7 @@ module.exports = Backbone.View.extend({
 
 
     render: function () {
+        this.$el.attr('class', 'todo-entry');
         this.$el.html(this.template(this.model.attributes));
         return this;
     },
@@ -20,6 +21,9 @@ module.exports = Backbone.View.extend({
         $.ajax({
             type: "DELETE",
             url: require('config').api.url + "/api/todo/" + this.model.get('id'),
+            success: function () {
+                this.$el.remove();
+            }
         });
     }
 });
