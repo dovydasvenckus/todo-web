@@ -8,13 +8,16 @@ module.exports = Backbone.View.extend({
     },
 
     initialize: function () {
-        this.TodoListView = require('views/todo/list');
-        this.TodosModel = require('collections/todos');
-        this.todoListView = new this.TodoListView({model: new this.TodosModel()})
+        var TodoListView = require('views/todo/list');
+        var TodosModel = require('collections/todos');
+        var TodoAddView = require('views/todo/add');
+        this.todoListView = new TodoListView({model: new TodosModel()});
+        this.todoAddView = new TodoAddView();
+        this.render();
     },
 
     render: function () {
-        this.$el.append(this.todoListView.render().el);
+        this.$('#menu').after(this.todoAddView.render().el);
         return this;
     },
 

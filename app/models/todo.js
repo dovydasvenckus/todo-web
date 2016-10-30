@@ -1,5 +1,5 @@
 module.exports = Backbone.Model.extend({
-    config: require('config'),
+    url: require('config').api.url + '/api/todo',
     defaults: {
         id: '',
         title: '',
@@ -11,7 +11,7 @@ module.exports = Backbone.Model.extend({
         var isDone = self.get('isDone');
         $.ajax({
             type: "POST",
-            url: this.config.api.url + "/api/todo/toggle/" + self.get("id"),
+            url: require('config').api.url + "/api/todo/toggle/" + self.get("id"),
             success: function () {
                 self.set("isDone", !isDone);
             },
