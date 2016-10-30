@@ -25,10 +25,7 @@ module.exports = Backbone.View.extend({
             type: "POST",
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify(todo),
-            url: require('config').api.url + "/api/todo",
-            success: function () {
-                console.log("Saved todo");
-            },
+            url: require('config').api.url + "/api/todo"
         });
     }
 });
