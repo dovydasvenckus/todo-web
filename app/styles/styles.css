@@ -1,6 +1,11 @@
-ul {
-    padding: 0px;
+#menu{
+    margin-bottom: 10px;
 }
-ul.inline-list li {
-    display:inline;
+
+.menu-entry button {
+    width: 100%;
+}
+
+#submit-todo-button{
+    margin-left: 10px;
 }

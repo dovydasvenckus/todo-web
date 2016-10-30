@@ -18,11 +18,12 @@ module.exports = Backbone.View.extend({
     },
 
     destroy: function () {
+        var self = this;
         $.ajax({
             type: "DELETE",
             url: require('config').api.url + "/api/todo/" + this.model.get('id'),
             success: function () {
-                this.$el.remove();
+                self.$el.remove();
             }
         });
     }

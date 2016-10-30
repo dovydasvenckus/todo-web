@@ -5,6 +5,10 @@ module.exports = Backbone.View.extend({
         'click #submit-todo-button': 'addTodo'
     },
 
+    initialize: function () {
+      this.$el.attr("class", "row")
+    },
+
     render: function () {
         this.$el.html(this.template());
         return this;

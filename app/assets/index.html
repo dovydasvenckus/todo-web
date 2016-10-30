@@ -6,27 +6,38 @@
     <meta name="viewport"
           content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"/>
     <title>Dead simple todo list</title>
+    <link rel="stylesheet" type="text/css" href="/css/vendor.css">
     <link rel="stylesheet" type="text/css" href="/app.css">
     <script src="/vendor.js"></script>
     <script src="/app.js"></script>
     <script>require('initialize');</script>
 </head>
 <body id="body">
-<ul id="menu" class="inline-list">
-    <li><a href="#" id="all-todo">All</a></li>
-    <li><a href="#" id="active-todo">To do</a></li>
-    <li><a href="#" id="done-todo">Done</a></li>
-</ul>
-<table class="table">
-    <thead>
-    <tr>
-        <th>Done</th>
-        <th>ID</th>
-        <th>Title</th>
-        <th>X</th>
-    </tr>
-    </thead>
-    <tbody id="table-body"></tbody>
-</table>
+<div class="row">
+    <div class="column column-50 column-offset-25">
+        <div id="menu" class="row">
+            <div class="column menu-entry">
+                <button id="all-todo">All</button>
+            </div>
+            <div class="column menu-entry">
+                <button id="active-todo" class="column">To do</button>
+            </div>
+            <div class="column menu-entry">
+                <button id="done-todo" class="column">Done</button>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Done</th>
+                <th>ID</th>
+                <th>Title</th>
+                <th>X</th>
+            </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+        </table>
+    </div>
+</div>
 </body>
 </html>
