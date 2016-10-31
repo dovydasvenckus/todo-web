@@ -6,6 +6,9 @@ module.exports = Backbone.View.extend({
         'click .delete': 'destroy'
     },
 
+    initialize: function () {
+        this.listenTo(this.model, "change", this.render);
+    },
 
     render: function () {
         this.$el.attr('class', 'todo-entry');
