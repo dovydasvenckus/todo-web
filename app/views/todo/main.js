@@ -10,7 +10,7 @@ module.exports = Backbone.View.extend({
         var MenuView = require('views/todo/menu');
         this.todoListView = new TodoListView({
             model: new TodosModel(),
-            parent: this
+            el: this.$('#todo-list-wrapper')
         });
         this.todoAddView = new TodoAddView();
         this.menuView = new MenuView({todoListView: self.todoListView});

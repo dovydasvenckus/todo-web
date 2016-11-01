@@ -15,7 +15,6 @@ module.exports = Backbone.View.extend({
         if (!_.isEmpty(this.todoList)) {
             this.appendRows(this);
         }
-        parent.$('#main-container').append(this.$el);
         return this;
     },
 
