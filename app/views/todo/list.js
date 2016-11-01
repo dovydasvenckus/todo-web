@@ -1,8 +1,25 @@
 module.exports = Backbone.View.extend({
-    el: '#table-body',
+    tagName: 'div',
+    template: require('templates/todo/list.jade'),
     todoList: undefined,
 
+
     initialize: function () {
+        this.updateView();
+    },
+
+    render: function () {
+        this.$el.html('');
+        this.$el.append(this.template());
+
+        if (!_.isEmpty(this.todoList)) {
+            this.appendRows(this);
+        }
+        parent.$('#main-container').append(this.$el);
+        return this;
+    },
+
+    updateView: function () {
         var self = this;
         this.model.fetch({
             success: function (todoList) {
@@ -12,18 +29,14 @@ module.exports = Backbone.View.extend({
         });
     },
 
-    render: function () {
+    appendRows: function () {
         var TodoView = require('views/todo/entry');
-        this.$el.html('');
-
-        this.todoList.each(function(todo) {
+        this.todoList.each(function (todo) {
             var todoView = new TodoView({
                 model: todo
             });
-            this.$el.append(todoView.render().el);
+            this.$('.table tbody').append(todoView.render().el);
         }.bind(this));
-
-        return this;
     }
 
 });
