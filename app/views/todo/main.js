@@ -14,6 +14,7 @@ module.exports = Backbone.View.extend({
         });
         this.todoAddView = new TodoAddView();
         this.menuView = new MenuView({todoListView: self.todoListView});
+        this.todoAddView.bind('newEntryAdded', this.newItemWasAdded, this);
         this.render();
     },
 
@@ -21,6 +22,10 @@ module.exports = Backbone.View.extend({
         this.$('#menu-wrapper').append(this.menuView.render().el);
         this.$('#menu-wrapper').after(this.todoAddView.render().el);
         return this;
+    },
+
+    newItemWasAdded: function () {
+        this.todoListView.updateView();
     }
 
 });

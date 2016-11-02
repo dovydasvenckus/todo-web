@@ -21,6 +21,7 @@ module.exports = Backbone.View.extend({
             };
             this.createTodoOnServer(todo);
             this.$('#todo-title-box').val("");
+            this.trigger('newEntryAdded');
         }
     },
 
