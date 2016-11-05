@@ -7,7 +7,7 @@ module.exports = Backbone.View.extend({
     },
 
     initialize: function () {
-      this.$el.attr("class", "row")
+        this.$el.attr("class", "row")
     },
 
     render: function () {
@@ -16,27 +16,25 @@ module.exports = Backbone.View.extend({
     },
 
     addTodo: function () {
-        if (! _.isEmpty(this.$('#todo-title-box').val())) {
+        if (!_.isEmpty(this.$('#todo-title-box').val())) {
             var todo = {
                 title: this.$('#todo-title-box').val()
             };
             this.createTodoOnServer(todo);
-            this.$('#todo-title-box').val("");
-            this.trigger('newEntryAdded');
         }
     },
 
     createTodoOnServer: function (todo) {
-        $.ajax({
-            type: "POST",
-            contentType: "application/json; charset=utf-8",
-            data: JSON.stringify(todo),
-            url: require('config').api.url + "/api/todo"
+        var self = this;
+        $.post(require('config').api.url + "/api/todo", JSON.stringify(todo), function(data, textStatus, request) {
+            self.$('#todo-title-box').val("");
+            var createdTodoUrl = request.getResponseHeader('Location');
+            self.trigger('newEntryAdded', createdTodoUrl);
         });
     },
 
     keyPressHandler: function () {
-        if(event.keyCode === 13){
+        if (event.keyCode === 13) {
             this.$('#submit-todo-button').click();
         }
     }
