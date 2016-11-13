@@ -1,5 +1,6 @@
 module.exports = Backbone.View.extend({
     tagName: 'tr',
+    className: 'todo-entry',
     template: require('templates/todo/entry.jade'),
     events: {
         'click .isDone': 'toggle',
@@ -11,7 +12,6 @@ module.exports = Backbone.View.extend({
     },
 
     render: function () {
-        this.$el.attr('class', 'todo-entry');
         this.$el.html(this.template(this.model.attributes));
         componentHandler.upgradeElement(this.$('.mdl-checkbox').get(0));
         return this;
@@ -19,6 +19,9 @@ module.exports = Backbone.View.extend({
 
     toggle: function () {
         this.model.toggle();
+        if (this.$('.isDone').is(':checked')) {
+            this.$el.hide();
+        }
     },
 
     destroy: function () {
