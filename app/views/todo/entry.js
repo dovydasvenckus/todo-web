@@ -27,7 +27,7 @@ module.exports = Backbone.View.extend({
             type: "DELETE",
             url: require('config').api.url + "/api/todo/" + this.model.get('id'),
             success: function () {
-                self.$el.remove();
+                self.$el.hide();
             }
         });
     }
