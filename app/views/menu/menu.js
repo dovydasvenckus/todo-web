@@ -19,16 +19,24 @@ module.exports = Backbone.View.extend({
 
     allTodos: function (event) {
         event.preventDefault();
+        this.closeDrawer();
         this.trigger('showAllTodos');
     },
 
     activeTodos: function (event) {
         event.preventDefault();
+        this.closeDrawer();
         this.trigger('showActiveTodos');
     },
 
     doneTodos: function (event) {
         event.preventDefault();
+        this.closeDrawer();
         this.trigger('showDoneTodos');
+    },
+
+    closeDrawer: function () {
+        var drawer = document.querySelector('.mdl-layout');
+        drawer.MaterialLayout.toggleDrawer();
     }
 });
