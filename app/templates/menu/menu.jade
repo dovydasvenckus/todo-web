@@ -1,0 +1,16 @@
+- var appName = "Dead simple todo list"
+
+header.mdl-layout__header
+    div.mdl-layout__header-row
+        span.mdl-layout-title #{appName}
+
+div.mdl-layout__drawer
+    span.mdl-layout__drawer #{appName}
+    nav.mdl-navigation
+        a#active-todo.mdl-navigation__link( href="#") Todo
+        a#all-todo.mdl-navigation__link( href="#") All
+        a#done-todo.mdl-navigation__link( href="#") Done
+
+main.mdl-layout__content
+    div#add-todo
+    div#todo-list

@@ -1,11 +1,3 @@
-#menu{
-    margin-bottom: 10px;
-}
-
-.menu-entry button {
-    width: 100%;
-}
-
-#submit-todo-button{
+.full-width {
     width: 100%;
 }

@@ -1,7 +1,6 @@
 module.exports = Backbone.View.extend({
-    tagName: 'div',
-    template: require('templates/todo/menu.jade'),
-    todoListView: undefined,
+    template: require('templates/menu/menu.jade'),
+    el: '#main-container',
     events: {
         'click #all-todo': 'allTodos',
         'click #active-todo': 'activeTodos',
@@ -11,8 +10,6 @@ module.exports = Backbone.View.extend({
     initialize: function (options) {
         this.config = require('config');
         this.todoListView = options.todoListView;
-        this.$el.attr('id', 'menu');
-        this.$el.attr('class', 'column')
     },
 
     render: function () {
@@ -22,19 +19,16 @@ module.exports = Backbone.View.extend({
 
     allTodos: function (event) {
         event.preventDefault();
-        this.todoListView.model.url = this.config.api.url + "/api/todo";
-        this.todoListView.updateView()
+        this.trigger('showAllTodos');
     },
 
     activeTodos: function (event) {
         event.preventDefault();
-        this.todoListView.model.url = this.config.api.url + "/api/todo?done=false";
-        this.todoListView.updateView()
+        this.trigger('showActiveTodos');
     },
 
     doneTodos: function (event) {
         event.preventDefault();
-        this.todoListView.model.url = this.config.api.url + "/api/todo?done=true";
-        this.todoListView.updateView()
+        this.trigger('showDoneTodos');
     }
 });

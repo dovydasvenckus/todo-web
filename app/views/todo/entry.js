@@ -13,6 +13,7 @@ module.exports = Backbone.View.extend({
     render: function () {
         this.$el.attr('class', 'todo-entry');
         this.$el.html(this.template(this.model.attributes));
+        componentHandler.upgradeElement(this.$('.mdl-checkbox').get(0));
         return this;
     },
 

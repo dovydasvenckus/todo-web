@@ -15,6 +15,7 @@ module.exports = Backbone.View.extend({
         if (!_.isEmpty(this.todoList)) {
             this.appendRows(this);
         }
+
         return this;
     },
 
@@ -34,7 +35,7 @@ module.exports = Backbone.View.extend({
             var todoView = new TodoView({
                 model: todo
             });
-            this.$('.table tbody').append(todoView.render().el);
+            this.$('tbody').append(todoView.render().el);
         }.bind(this));
     }
 

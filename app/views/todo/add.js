@@ -2,12 +2,7 @@ module.exports = Backbone.View.extend({
     tagName: 'div',
     template: require('templates/todo/add.jade'),
     events: {
-        'click #submit-todo-button': 'addTodo',
         'keyup #todo-title-box': 'keyPressHandler'
-    },
-
-    initialize: function () {
-        this.$el.attr("class", "row")
     },
 
     render: function () {
@@ -35,7 +30,7 @@ module.exports = Backbone.View.extend({
 
     keyPressHandler: function () {
         if (event.keyCode === 13) {
-            this.$('#submit-todo-button').click();
+            this.addTodo();
         }
     }
 });

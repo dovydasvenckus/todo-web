@@ -17,11 +17,14 @@ module.exports = {
         templates: {joinTo: 'app.js'}
     },
     npm: {
-        styles: {milligram: ['dist/milligram.css']},
+        styles: {
+            'material-design-lite': ['dist/material.min.css']
+        },
         globals: {
             $: 'jquery',
             Backbone: 'backbone',
-            _: 'underscore'
+            _: 'underscore',
+            Material: 'material-design-lite'
         }
     }
-}
+};
