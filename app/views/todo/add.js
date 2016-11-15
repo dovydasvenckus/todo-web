@@ -28,7 +28,7 @@ module.exports = Backbone.View.extend({
         });
     },
 
-    keyPressHandler: function () {
+    keyPressHandler: function (event) {
         if (event.keyCode === 13) {
             this.addTodo();
         }
