@@ -3,5 +3,7 @@ span.mdl-list__item-primary-action
         input(id="isDone-#{id}" class="isDone mdl-checkbox__input" type="checkbox" name="completed" checked=(isDone))
 
 span.mdl-list__item-primary-content #{title}
-span
-    a(href="#" class="delete") X
+
+span.mdl-list__item-secondary-action
+    a(href="#" class="delete")
+        i.material-icons delete
