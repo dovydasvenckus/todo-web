@@ -35,7 +35,7 @@ module.exports = Backbone.View.extend({
             var todoView = new TodoView({
                 model: todo
             });
-            this.$('tbody').append(todoView.render().el);
+            this.$('.todo-list').append(todoView.render().el);
         }.bind(this));
     }
 

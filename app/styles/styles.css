@@ -1,3 +1,14 @@
 .full-width {
     width: 100%;
 }
+
+.todo-item {
+    border-width: 1px;
+    border-bottom: solid rgba(0, 0, 0, 0.117647);
+}
+
+.todo-list > li:first-child {
+    border-width: 1px;
+    border-top: solid rgba(0, 0, 0, 0.117647);
+    border-bottom: solid rgba(0, 0, 0, 0.117647);
+}

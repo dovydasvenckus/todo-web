@@ -1,6 +1,6 @@
 module.exports = Backbone.View.extend({
-    tagName: 'tr',
-    className: 'todo-entry',
+    tagName: 'li',
+    className: 'todo-item mdl-list__item',
     template: require('templates/todo/entry.jade'),
     events: {
         'click .isDone': 'toggle',

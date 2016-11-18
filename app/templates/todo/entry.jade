@@ -1,8 +1,7 @@
-td.mdl-data-table__cell--non-numeric
+span.mdl-list__item-primary-action
     label(class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="isDone-#{id}")
         input(id="isDone-#{id}" class="isDone mdl-checkbox__input" type="checkbox" name="completed" checked=(isDone))
 
-td #{id}
-td.mdl-data-table__cell--non-numeric #{title}
-td
+span.mdl-list__item-primary-content #{title}
+span
     a(href="#" class="delete") X
