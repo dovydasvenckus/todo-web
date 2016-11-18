@@ -31,7 +31,7 @@ module.exports = Backbone.View.extend({
         var TodosModel = require('collections/todos');
         this.todoListView = new TodoListView({
             model: new TodosModel(),
-            el: this.$('#todo-list')
+            el: this.$('#todo-list-wrapper')
         });
     },
 

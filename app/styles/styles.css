@@ -7,6 +7,14 @@
     border-bottom: solid rgba(0, 0, 0, 0.117647);
 }
 
+#todo-list-wrapper {
+    margin-top: 0px;
+}
+
+.todo-list {
+    margin-top: 0px;
+}
+
 .todo-list > li:first-child {
     border-width: 1px;
     border-top: solid rgba(0, 0, 0, 0.117647);
