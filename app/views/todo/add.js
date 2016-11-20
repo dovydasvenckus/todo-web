@@ -4,6 +4,7 @@ module.exports = Backbone.View.extend({
     events: {
         'keyup #todo-title-box': 'keyPressHandler'
     },
+    Todo: require('models/todo'),
 
     render: function () {
         this.$el.html(this.template());
@@ -11,21 +12,24 @@ module.exports = Backbone.View.extend({
     },
 
     addTodo: function () {
-        if (!_.isEmpty(this.$('#todo-title-box').val())) {
-            var todo = {
-                title: this.$('#todo-title-box').val()
-            };
-            this.createTodoOnServer(todo);
+        var self = this;
+        var todo = new this.Todo({title: this.$('#todo-title-box').val()});
+        var valid = todo.save({}, {
+            dataType: 'text',
+            success: function () {
+                self.resetAddTodoInputBox();
+                self.trigger('newEntryAdded');
+            }
+        });
+
+        if (!valid) {
+            self.resetAddTodoInputBox();
         }
+
     },
 
-    createTodoOnServer: function (todo) {
-        var self = this;
-        $.post(require('config').api.url + "/api/todo", JSON.stringify(todo), function(data, textStatus, request) {
-            self.$('#todo-title-box').val("");
-            var createdTodoUrl = request.getResponseHeader('Location');
-            self.trigger('newEntryAdded', createdTodoUrl);
-        });
+    resetAddTodoInputBox: function () {
+        $('#todo-title-box').val("");
     },
 
     keyPressHandler: function (event) {
