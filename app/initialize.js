@@ -1,4 +1,7 @@
-(function() {
-    var MainView = require('views/todo/main');
-    new MainView()
-})();
+var application = require('application');
+
+$(function() {
+    application.initialize();
+
+    Backbone.history.start();
+});
