@@ -1,15 +1,13 @@
 module.exports = Backbone.View.extend({
-    template: require('templates/menu/menu.jade'),
-    el: '#main-container',
+    template: require('templates/layout/menu.jade'),
     events: {
         'click #all-todo': 'allTodos',
         'click #active-todo': 'activeTodos',
         'click #done-todo': 'doneTodos'
     },
 
-    initialize: function (options) {
-        this.config = require('config');
-        this.todoListView = options.todoListView;
+    initialize: function () {
+        this.render();
     },
 
     render: function () {
@@ -17,22 +15,16 @@ module.exports = Backbone.View.extend({
         return this;
     },
 
-    allTodos: function (event) {
-        event.preventDefault();
+    allTodos: function () {
         this.closeDrawer();
-        this.trigger('showAllTodos');
     },
 
-    activeTodos: function (event) {
-        event.preventDefault();
+    activeTodos: function () {
         this.closeDrawer();
-        this.trigger('showActiveTodos');
     },
 
-    doneTodos: function (event) {
-        event.preventDefault();
+    doneTodos: function () {
         this.closeDrawer();
-        this.trigger('showDoneTodos');
     },
 
     closeDrawer: function () {

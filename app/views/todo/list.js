@@ -2,15 +2,21 @@ module.exports = Backbone.View.extend({
     tagName: 'div',
     template: require('templates/todo/list.jade'),
     todoList: undefined,
+    status: undefined,
 
 
-    initialize: function () {
+    initialize: function (options) {
+        var TodosModel = require('collections/todos');
+        this.model = new TodosModel();
+
+        this.setOptions(options);
+        this.setupTodosUrl();
+
         this.updateView();
     },
 
     render: function () {
-        this.$el.html('');
-        this.$el.append(this.template());
+        this.$el.html(this.template());
 
         if (!_.isEmpty(this.todoList)) {
             this.appendRows(this);
@@ -37,6 +43,21 @@ module.exports = Backbone.View.extend({
             });
             this.$('.todo-list').append(todoView.render().el);
         }.bind(this));
+    },
+
+    setOptions: function (options) {
+        if (options) {
+            this.status = options.status;
+        }
+    },
+
+    setupTodosUrl: function () {
+        if (this.status == 'all') {
+            this.model.setUrlAll()
+        }
+        else if (this.status == 'done') {
+            this.model.setUrlDone()
+        }
     }
 
-});
+    });

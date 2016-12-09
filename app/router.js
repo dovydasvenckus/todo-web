@@ -1,14 +1,19 @@
 module.exports = Backbone.Router.extend({
+    MainView: require('views/layout/main'),
 
     routes: {
-        "*filter": "todoList"
+        "": "todoList",
+        "todo": "todoList",
+        "todo/:filter": "filterTodos"
     },
 
 
     todoList: function () {
-        var MainView = require('views/todo/main');
-        new MainView()
-    }
+        new this.MainView()
+    },
 
+    filterTodos: function (filter) {
+        new this.MainView({status: filter})
+    }
 
 });

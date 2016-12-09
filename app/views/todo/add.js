@@ -6,6 +6,10 @@ module.exports = Backbone.View.extend({
     },
     Todo: require('models/todo'),
 
+    initialize: function () {
+        this.render()
+    },
+
     render: function () {
         this.$el.html(this.template());
         return this;
