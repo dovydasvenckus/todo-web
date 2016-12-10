@@ -7,7 +7,7 @@ module.exports = Backbone.Model.extend({
     },
 
     validate: function (attrs) {
-        if (attrs.title.replace(/\s/g, '').length == 0) {
+        if (attrs.title.replace(/\s/g, '').length === 0) {
             return "Title shouldn't be empty";
         }
     },

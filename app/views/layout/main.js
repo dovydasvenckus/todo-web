@@ -26,7 +26,7 @@ module.exports = Backbone.View.extend({
 
     renderMenu: function () {
         var MenuView = require('views/layout/menu');
-        this.menuView = new MenuView({el: this.$('.mdl-layout__drawer')})
+        this.menuView = new MenuView({el: this.$('.mdl-layout__drawer')});
     },
 
     renderAddItemField: function () {

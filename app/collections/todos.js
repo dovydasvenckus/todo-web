@@ -10,14 +10,14 @@ module.exports = Backbone.Collection.extend({
     },
 
     setUrlAll: function () {
-        this.url = this.getUrl("/api/todo")
+        this.url = this.getUrl("/api/todo");
     },
 
     setUrlDone: function () {
-        this.url = this.getUrl("/api/todo?done=true")
+        this.url = this.getUrl("/api/todo?done=true");
     },
 
     setUrlActive: function () {
-        this.url = this.getUrl("/api/todo?done=false")
+        this.url = this.getUrl("/api/todo?done=false");
     }
 });

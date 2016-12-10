@@ -7,7 +7,7 @@ module.exports = Backbone.View.extend({
     Todo: require('models/todo'),
 
     initialize: function () {
-        this.render()
+        this.render();
     },
 
     render: function () {

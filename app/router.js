@@ -7,13 +7,12 @@ module.exports = Backbone.Router.extend({
         "todo/:filter": "filterTodos"
     },
 
-
     todoList: function () {
-        new this.MainView()
+        new this.MainView();
     },
 
     filterTodos: function (filter) {
-        new this.MainView({status: filter})
+        new this.MainView({status: filter});
     }
 
 });

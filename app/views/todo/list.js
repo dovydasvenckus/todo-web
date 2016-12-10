@@ -53,11 +53,11 @@ module.exports = Backbone.View.extend({
 
     setupTodosUrl: function () {
         if (this.status == 'all') {
-            this.model.setUrlAll()
+            this.model.setUrlAll();
         }
         else if (this.status == 'done') {
-            this.model.setUrlDone()
+            this.model.setUrlDone();
         }
     }
 
-    });
+});
