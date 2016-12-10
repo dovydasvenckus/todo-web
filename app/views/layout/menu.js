@@ -28,7 +28,7 @@ module.exports = Backbone.View.extend({
     },
 
     closeDrawer: function () {
-        var drawer = document.querySelector('.mdl-layout');
+        var drawer = document.querySelector('#main-container');
         drawer.MaterialLayout.toggleDrawer();
     }
 });

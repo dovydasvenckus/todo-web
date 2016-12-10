@@ -11,8 +11,11 @@ module.exports = Backbone.View.extend({
     },
 
     render: function () {
-        this.renderMainLayout();
-        this.renderMenu();
+        if (!this.hasLayoutRendered()) {
+            this.renderMainLayout();
+            this.renderMenu();
+        }
+
         this.renderAddItemField();
         this.renderTodoListView();
 
@@ -26,7 +29,7 @@ module.exports = Backbone.View.extend({
 
     renderMenu: function () {
         var MenuView = require('views/layout/menu');
-        this.menuView = new MenuView({el: this.$('.mdl-layout__drawer')});
+        this.menuView = new MenuView({el: this.$('#menu-drawer')});
     },
 
     renderAddItemField: function () {
@@ -51,5 +54,9 @@ module.exports = Backbone.View.extend({
         if (options) {
             this.status = options.status;
         }
+    },
+
+    hasLayoutRendered: function () {
+        return this.$('#main-container').children().length > 0;
     }
 });
