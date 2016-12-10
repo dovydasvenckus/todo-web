@@ -24,8 +24,10 @@ module.exports = Backbone.View.extend({
         }
     },
 
-    destroy: function () {
+    destroy: function (event) {
         var self = this;
+
+        event.preventDefault();
         $.ajax({
             type: "DELETE",
             url: require('config').api.url + "/api/todo/" + this.model.get('id'),
