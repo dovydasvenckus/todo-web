@@ -5,7 +5,6 @@ module.exports = Backbone.View.extend({
         'keyup #todo-title-box': 'keyPressHandler'
     },
     Todo: require('models/todo'),
-
     initialize: function () {
         this.render();
     },
@@ -19,6 +18,7 @@ module.exports = Backbone.View.extend({
         var self = this;
         var todo = new this.Todo({title: this.$('#todo-title-box').val()});
         var valid = todo.save({}, {
+            headers: {'Authorization': localStorage.getItem("auth")},
             dataType: 'text',
             success: function () {
                 self.resetAddTodoInputBox();

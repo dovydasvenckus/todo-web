@@ -1,5 +1,5 @@
 module.exports = {
     api: {
-        url: ''
+        url: 'http://localhost:8080'
     }
 };

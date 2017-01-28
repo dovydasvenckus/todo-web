@@ -30,6 +30,7 @@ module.exports = Backbone.View.extend({
         event.preventDefault();
         $.ajax({
             type: "DELETE",
+            headers: {'Authorization': localStorage.getItem("auth")},
             url: require('config').api.url + "/api/todo/" + this.model.get('id'),
             success: function () {
                 self.$el.hide();

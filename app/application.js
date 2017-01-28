@@ -1,9 +1,22 @@
 module.exports = {
+    currentUser: {},
 
-    initialize: function() {
+    initialize: function () {
         var ApplicationRouter = require('router');
         this.applicationRouter = new ApplicationRouter();
 
-        if (typeof Object.freeze === 'function') Object.freeze(this); // You're frozen when your heart's not open
-    }
+        this.handleJqueryNotAuthorizedRequests();
+    },
+
+    handleJqueryNotAuthorizedRequests: function () {
+        $(document).ajaxError(function (e, xhr, settings) {
+            if (xhr.status === 401) {
+                window.location.href = "/#login";
+                console.log("Redirect to login");
+            }
+            if (xhr.status === 403) {
+                console.log("Forbidden");
+            }
+        });
+    },
 };

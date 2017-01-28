@@ -28,6 +28,7 @@ module.exports = Backbone.View.extend({
     updateView: function () {
         var self = this;
         this.model.fetch({
+            headers: {'Authorization': localStorage.getItem("auth")},
             success: function (todoList) {
                 self.todoList = todoList;
                 self.render();
@@ -39,6 +40,7 @@ module.exports = Backbone.View.extend({
         var TodoView = require('views/todo/entry');
         this.todoList.each(function (todo) {
             var todoView = new TodoView({
+                headers: {'Authorization': localStorage.getItem("auth")},
                 model: todo
             });
             this.$('.todo-list').append(todoView.render().el);
