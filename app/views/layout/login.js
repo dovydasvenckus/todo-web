@@ -42,5 +42,9 @@ module.exports = Backbone.View.extend({
     
     encodeHeader: function (username, password) {
         return 'Basic ' + window.btoa(username + ':' + password);
+    },
+
+    close: function () {
+        this.remove();
     }
 });

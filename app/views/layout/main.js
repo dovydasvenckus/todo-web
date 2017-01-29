@@ -1,6 +1,6 @@
 module.exports = Backbone.View.extend({
     config: require('config'),
-    el: '#body',
+    el: '#main-container',
 
     status: undefined,
 
@@ -11,10 +11,8 @@ module.exports = Backbone.View.extend({
     },
 
     render: function () {
-        if (!this.hasLayoutRendered()) {
-            this.renderMainLayout();
-            this.renderMenu();
-        }
+        this.renderMainLayout();
+        this.renderMenu();
 
         this.renderAddItemField();
         this.renderTodoListView();
@@ -24,7 +22,7 @@ module.exports = Backbone.View.extend({
 
     renderMainLayout: function () {
         var ApplicationLayout = require('views/layout/layout');
-        this.appLayout = new ApplicationLayout({el: this.$('#main-container')});
+        this.appLayout = new ApplicationLayout({el: this.$el});
     },
 
     renderMenu: function () {
@@ -56,7 +54,11 @@ module.exports = Backbone.View.extend({
         }
     },
 
-    hasLayoutRendered: function () {
-        return this.$('#main-container').children().length > 0;
+    close: function () {
+        this.todoAddView.remove();
+        this.todoListView.remove();
+        this.menuView.remove();
+        this.appLayout.remove();
+        this.remove();
     }
 });
