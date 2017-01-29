@@ -24,3 +24,7 @@
 .delete {
     color: #3F51B5;
 }
+
+a#login-button {
+    width: 90%;
+}

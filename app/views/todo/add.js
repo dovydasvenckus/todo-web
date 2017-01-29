@@ -11,7 +11,6 @@ module.exports = Backbone.View.extend({
 
     render: function () {
         this.$el.html(this.template());
-        componentHandler.upgradeElement(this.$('#todo-title-box').get(0));
         return this;
     },
 

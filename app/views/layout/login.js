@@ -13,13 +13,15 @@ module.exports = Backbone.View.extend({
 
     render: function () {
         this.$el.html(this.template());
+        componentHandler.upgradeElement(this.$('#username-field').get(0));
+        componentHandler.upgradeElement(this.$('#password-field').get(0));
         return this;
     },
 
     login: function () {
         var username =  this.$('#username-field').val();
         var password = this.$('#password-field').val();
-        
+
         this.isLoggedIn(username, password);
     },
 

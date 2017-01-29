@@ -35,7 +35,8 @@ module.exports = Backbone.Router.extend({
         if (this.view) {
             this.view.close();
             if (!$('#main-container').length) {
-                $('.mdl-layout__container').append(this.createContainerDiv());
+                $('.mdl-layout__container').remove();
+                $('body').append(this.createContainerDiv());
             }
         }
         this.view = new view(params);

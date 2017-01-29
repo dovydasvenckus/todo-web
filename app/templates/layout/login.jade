@@ -1,10 +1,18 @@
-h1 Login form
-div.mdl-textfield.mdl-js-textfield
-    input(id="username-field" type="text" class="mdl-textfield__input")
-    label(class="mdl-textfield__label" for="username-field" ) Username
+div.mdl-grid(style="max-width: 400px")
 
-div.mdl-textfield.mdl-js-textfield
-    input(id="password-field" type="password" class="mdl-textfield__input")
-    label(class="mdl-textfield__label" for="password-field" ) Password
-div
-    button#login-button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored Log in
+    div#login-card.mdl-card.mdl-shadow--2dp
+        div.mdl-card__title
+            h2.mdl-card__title-text Log in
+
+        div.mdl-card__supporting-text
+            div.mdl-textfield.mdl-js-textfield
+                input(id="username-field" type="text" class="mdl-textfield__input")
+                label(class="mdl-textfield__label" for="username-field" ) Username
+
+            div.mdl-textfield.mdl-js-textfield
+                input(id="password-field" type="password" class="mdl-textfield__input")
+                label(class="mdl-textfield__label" for="password-field" ) Password
+
+        div.mdl-card__actions.mdl-card--border.nm
+            a#login-button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored.full Log in
+
