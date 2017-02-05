@@ -1,5 +1,4 @@
 module.exports = Backbone.View.extend({
-    config: require('config'),
     el: '#main-container',
 
     status: undefined,
