@@ -5,8 +5,18 @@ module.exports = Backbone.View.extend({
         'keyup #todo-title-box': 'keyPressHandler'
     },
     Todo: require('models/todo'),
+    list: undefined,
+
     initialize: function () {
+        this.initListIdFromUrl();
         this.render();
+    },
+
+    initListIdFromUrl: function () {
+        var splitUrl = window.location.hash.split('/');
+        if (splitUrl[0] == '#list' && Number.isInteger(parseInt(splitUrl[1]))) {
+            this.list = splitUrl[1];
+        }
     },
 
     render: function () {
@@ -16,7 +26,7 @@ module.exports = Backbone.View.extend({
 
     addTodo: function () {
         var self = this;
-        var todo = new this.Todo({title: this.$('#todo-title-box').val()});
+        var todo = new this.Todo({title: this.$('#todo-title-box').val(), todoListId: this.list});
         var valid = todo.save({}, {
             headers: {'Authorization': localStorage.getItem("auth")},
             dataType: 'text',

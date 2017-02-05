@@ -11,6 +11,7 @@ module.exports = Backbone.Router.extend({
         "": "todoList",
         "todo": "todoList",
         "todo/:filter": "filterTodos",
+        "list/:list/todos": "todoFromList",
         "login": "login"
     },
 
@@ -21,6 +22,10 @@ module.exports = Backbone.Router.extend({
         else {
             this.login();
         }
+    },
+
+    todoFromList: function (list) {
+        this.loadView(this.MainView, {list: list});
     },
 
     filterTodos: function (filter) {

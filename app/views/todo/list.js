@@ -3,6 +3,7 @@ module.exports = Backbone.View.extend({
     template: require('templates/todo/list.jade'),
     todoList: undefined,
     status: undefined,
+    list: undefined,
 
 
     initialize: function (options) {
@@ -50,10 +51,16 @@ module.exports = Backbone.View.extend({
     setOptions: function (options) {
         if (options) {
             this.status = options.status;
+            this.list = options.list;
         }
     },
 
     setupTodosUrl: function () {
+        if (this.list) {
+            this.model.setUrlForListId(this.list);
+            return;
+        }
+
         if (this.status == 'all') {
             this.model.setUrlAll();
         }

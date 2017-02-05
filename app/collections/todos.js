@@ -16,5 +16,9 @@ module.exports = Backbone.Collection.extend({
 
     setUrlActive: function () {
         this.url = this.getUrl("/api/todo?done=false");
+    },
+
+    setUrlForListId: function (listId) {
+        this.url = require('config').api.url + "/api/list/" + listId + "/todos";
     }
 });

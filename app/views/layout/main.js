@@ -2,6 +2,7 @@ module.exports = Backbone.View.extend({
     el: '#main-container',
 
     status: undefined,
+    list: undefined,
 
     initialize: function (options) {
         this.setOptions(options);
@@ -39,6 +40,7 @@ module.exports = Backbone.View.extend({
         var TodoListView = require('views/todo/list');
         this.todoListView = new TodoListView({
             status: this.status,
+            list: this.list,
             el: this.$('#todo-list-wrapper')
         });
     },
@@ -50,6 +52,7 @@ module.exports = Backbone.View.extend({
     setOptions: function (options) {
         if (options) {
             this.status = options.status;
+            this.list = options.list;
         }
     },
 
